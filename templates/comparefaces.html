@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block bodyblock %}
+		<div class="container">
+			<h2 class="content">Compare Two faces and find out if they are of the same person</h2>
+			<br>
+			<p class="content">Using Python's face-recognition module, this app compares the 128 encodings of each face and meaures's similarity. </p>
+		</div>
+		<div class="container">
+    	<form action="/face_match" method="POST" enctype="multipart/form-data">
+    	     <label for = 'upload'>Images</label>
+    	<input type="file" name="file" accept="image/*" multiple required="true">
+    	<input type="submit">
+    	</form>
+        </div>
+        {% if filenames %}
+
+    	<div class="container">
+    	<h2>{{ response_string }}</h2>
+		<div class="row">
+			{% for filename in filenames %}
+				<div class="col-md-6">
+					<img src="{{ filename }}" width="{{ w }}" height="300">
+				</div>
+			{% endfor %}
+		</div>
+
+	    </div>
+	    <style type="text/css">
+		    #predict{
+			   border: solid;
+			   color: #002f4d;
+			   text-align: center;
+		}
+
+	</style>
+    	
+        {% endif %}		
+{% endblock %}

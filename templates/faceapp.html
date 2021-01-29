@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block bodyblock %}
+	<div class="container">
+		<br>
+	<h3 class="content">
+		<span style="color:#198b90">FaceRecognition Application</span></h3>
+		<br>
+	<p class="content">
+		Gender Classification: This app is driven by data and machinelearning model. As soon as user uploads the image, the tool will convert this image to GrayScale, use Haarcascade functionality to recognize faces, save the faces in a directory, preprocess the image for efficient computing and predict gender based on a model built on Support Vector Machines. All these functionalities are then dumped on the flask application.
+	</p>
+	<br>
+	<img src="{{ url_for('static', filename = 'images/002.PNG') }}" alt="FreeAI" width="500" height="230">
+	<br>
+	<div align="center">
+		<a href="{{url_for('gender')}}" class="btn btn-outline-primary">Try it now</a>
+	</div>
+	
+</div>
+{% endblock %}
